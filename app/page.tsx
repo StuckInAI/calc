@@ -1,17 +1,18 @@
-import Calculator from '@/components/Calculator'
-import ThemeToggle from '@/components/ThemeToggle'
+import Calculator from './components/Calculator';
 
 export default function Home() {
   return (
-    <div className="w-full max-w-md">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Calc</h1>
-        <ThemeToggle />
+    <main className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex flex-col items-center justify-center p-4">
+      <div className="w-full max-w-md">
+        <header className="mb-8 text-center">
+          <h1 className="text-4xl font-bold text-gray-800 mb-2">Calc</h1>
+          <p className="text-gray-600">A modern calculator for your daily productivity</p>
+        </header>
+        <Calculator />
+        <footer className="mt-8 text-center text-gray-500 text-sm">
+          <p>© 2023 Calc • Simple and efficient calculations</p>
+        </footer>
       </div>
-      <Calculator />
-      <p className="mt-8 text-center text-gray-600 dark:text-gray-400 text-sm">
-        A modern calculator with keyboard support. Use <kbd className="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Enter</kbd> for equals and <kbd className="px-2 py-1 bg-gray-200 dark:bg-gray-700 rounded">Escape</kbd> to clear.
-      </p>
-    </div>
-  )
+    </main>
+  );
 }

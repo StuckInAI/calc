@@ -1,27 +1,27 @@
-# Calc - Productivity Calculator
+# Calc - Modern Calculator
 
-A modern, responsive calculator built with Next.js 14, TypeScript, and Tailwind CSS. Features dark/light mode toggle, keyboard support, and proper arithmetic operations.
+A clean, modern calculator web application built with Next.js, TypeScript, and Tailwind CSS. Designed for daily productivity with a fully responsive interface.
 
 ## Features
 
-- **Modern UI**: Clean, minimalist design with dark/light mode
-- **Full Responsiveness**: Works on all device sizes
-- **Keyboard Support**: Use digits, operators, Enter for equals, Escape to clear
-- **Proper Calculations**: Implements PEMDAS with decimal precision
-- **Error Handling**: Displays clear error messages for invalid operations
-- **Accessibility**: ARIA labels and keyboard navigation support
+- Basic arithmetic operations (+, -, ×, ÷)
+- Decimal point support
+- Clear (C) and backspace (⌫) functionality
+- Keyboard support for all operations
+- Responsive design for mobile, tablet, and desktop
+- Error handling (e.g., division by zero)
+- Clean, modern UI with visual feedback
 
 ## Tech Stack
 
-- Next.js 14 (App Router)
-- TypeScript
-- Tailwind CSS
-- next-themes for dark mode
-- React Hooks for state management
+- **Framework:** Next.js 14 with App Router
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS
+- **Deployment:** Docker optimized for Coolify
 
-## Getting Started
+## Quick Start
 
-### Development
+### Local Development
 
 1. Clone the repository
 2. Install dependencies:
@@ -34,37 +34,64 @@ A modern, responsive calculator built with Next.js 14, TypeScript, and Tailwind 
    ```
 4. Open [http://localhost:3000](http://localhost:3000)
 
-### Build for Production
+### Docker Deployment
 
+#### Build and run with Docker:
 ```bash
-npm run build
-npm start
+npm run docker:build
+npm run docker:run
 ```
 
-## Docker Deployment
-
-### Using Docker Compose (Recommended for Coolify)
-
+#### Using Docker Compose:
 ```bash
-docker-compose up -d
+npm run docker:compose
+# or with rebuild:
+npm run docker:compose-build
 ```
+
+## Docker Configuration
+
+The application is optimized for deployment with Coolify:
+
+- Multi-stage Docker build for minimal image size
+- Health checks configured
+- Proper user permissions
+- Production-ready configuration
 
 ### Environment Variables
 
-- `PORT`: Port to run the application (default: 3000)
-- `NEXT_PUBLIC_APP_NAME`: Application name (default: "Calc")
+Copy `.env.example` to `.env` and adjust as needed:
+```bash
+cp .env.example .env
+```
 
 ## Project Structure
 
 ```
-├── app/              # Next.js App Router pages
-├── components/       # Reusable React components
-├── lib/             # Utility functions (calculator logic)
-├── public/          # Static assets
-├── types/           # TypeScript type definitions
-├── Dockerfile       # Container configuration
-└── docker-compose.yml # Multi-container setup
+├── app/                    # Next.js app router pages and components
+│   ├── components/        # Reusable React components
+│   │   ├── Calculator.tsx
+│   │   └── Button.tsx
+│   ├── layout.tsx        # Root layout
+│   ├── page.tsx         # Main calculator page
+│   └── globals.css      # Global styles
+├── lib/                  # Utility functions
+│   └── calculate.ts     # Calculation logic
+├── public/              # Static assets
+├── Dockerfile           # Docker configuration
+├── docker-compose.yml   # Docker Compose setup
+├── package.json         # Dependencies and scripts
+└── README.md            # This file
 ```
+
+## Development Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run docker:build` - Build Docker image
+- `npm run docker:run` - Run Docker container
 
 ## License
 

@@ -1,29 +1,24 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import { ThemeProvider } from 'next-themes'
-import './globals.css'
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Calc - Productivity Calculator',
-  description: 'A modern, responsive calculator built with Next.js',
-}
+  title: 'Calc - Modern Calculator',
+  description: 'A clean, modern calculator for daily productivity tasks',
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} bg-gray-50 dark:bg-gray-900 transition-colors duration-300`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <main className="min-h-screen flex flex-col items-center justify-center p-4">
-            {children}
-          </main>
-        </ThemeProvider>
+    <html lang="en">
+      <body className={`${inter.className} bg-gray-50`}>
+        {children}
       </body>
     </html>
-  )
+  );
 }
