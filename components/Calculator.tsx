@@ -3,8 +3,7 @@
 import { useEffect, useReducer, KeyboardEvent } from 'react'
 import Display from './Display'
 import Button from './Button'
-import { calculate, CalculatorAction, CalculatorState, Operation } from '@/lib/calculator'
-import { CalculatorButton } from '@/types'
+import { calculate, CalculatorState, CalculatorButton } from '@/lib/calculator'
 
 export default function Calculator() {
   const initialState: CalculatorState = {
@@ -23,13 +22,13 @@ export default function Calculator() {
 
   const handleKeyDown = (e: KeyboardEvent) => {
     const key = e.key
-    
+
     if (key >= '0' && key <= '9') {
-      dispatch({ type: 'input', payload: key })
+      dispatch({ type: 'input', payload: key as CalculatorButton })
     } else if (key === '.') {
       dispatch({ type: 'input', payload: '.' })
     } else if (key === '+' || key === '-') {
-      dispatch({ type: 'input', payload: key })
+      dispatch({ type: 'input', payload: key as CalculatorButton })
     } else if (key === '*') {
       dispatch({ type: 'input', payload: '×' })
     } else if (key === '/') {
