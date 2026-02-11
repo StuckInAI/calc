@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  nextjs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: calc-app
+    ports:
+      - "${PORT:-3000}:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_APP_NAME=Calc
+    restart: unless-stopped
+    networks:
+      - calc-network
+
+networks:
+  calc-network:
+    driver: bridge
